@@ -1,0 +1,8 @@
+<h2>New Discussion</h2>
+<%= form_for(@discussion) do |f| %>
+  <p>
+    <%= f.label :question %><br />
+    <%= f.text_field :question %>
+  </p>
+  <%= f.submit %>
+<% end %>
