@@ -1,5 +1,6 @@
 <h2>New Discussion</h2>
 <%= form_for(@discussion) do |f| %>
+<%= f.error_messages %>
   <p>
     <%= f.label :question %><br />
     <%= f.text_field :question %>

@@ -13,7 +13,8 @@ class DiscussionsController < ApplicationController
       flash[:notice] = "Discussion has been created."
       redirect_to @discussion
     else
-      # nothing, yet
+      flash[:notice] = "Discussion has not been created."
+      render :action => "new"
     end
   end
 
