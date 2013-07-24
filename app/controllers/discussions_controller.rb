@@ -1,4 +1,8 @@
 class DiscussionsController < ApplicationController
+before_filter :find_discussion, :only => [:show,
+                                          :edit,
+                                          :update,
+                                          :destroy]
 
   def index
     @discussions = Discussion.all
@@ -44,5 +48,14 @@ class DiscussionsController < ApplicationController
     flash[:notice] = "Discussion has been deleted."
     redirect_to discussions_path
   end
+
+  private
+    def find_discussion
+      @discussion = Discussion.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+      flash[:alert] = "The discussion you were looking" +
+                      " for could not be found."
+      redirect_to discussions_path
+    end
 
 end
