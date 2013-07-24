@@ -23,4 +23,19 @@ class DiscussionsController < ApplicationController
     @discussion = Discussion.find(params[:id])
   end
 
+  def edit
+    @discussion = Discussion.find(params[:id])
+  end
+
+  def update
+    @discussion = Discussion.find(params[:id])
+    if @discussion.update_attributes(params[:discussion])
+      flash[:notice] = "Discussion has been updated."
+      redirect_to @discussion
+    else
+      flash[:alert] = "Discussion has not been updated."
+      render :action => "edit"
+    end
+  end
+
 end
