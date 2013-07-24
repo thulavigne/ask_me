@@ -38,4 +38,11 @@ class DiscussionsController < ApplicationController
     end
   end
 
+  def destroy
+    @discussion = Discussion.find(params[:id])
+    @discussion.destroy
+    flash[:notice] = "Discussion has been deleted."
+    redirect_to discussions_path
+  end
+
 end
