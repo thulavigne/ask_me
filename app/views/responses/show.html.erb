@@ -1,5 +1,6 @@
 <div id='response'>
   <p><%= @response.answer %></p>
+  <span id='author'>Created by <%= @response.user.email %></span>
   <%= link_to "Edit Answer", [:edit, @discussion, @response] %>
   <%= link_to "Delete Answer", [@discussion, @response], :method => :delete,
        :confirm => "Are you sure you want to delete this answer?" %>

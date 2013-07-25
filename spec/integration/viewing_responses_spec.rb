@@ -3,9 +3,11 @@ require 'spec_helper'
 feature "Viewing responses" do
   before do
     textmate_2 = Factory(:discussion, :question => "TextMate 2")
-    Factory(:response,
-            :discussion => textmate_2,
-            :answer => "Make it shiny!")
+    user = Factory(:user)
+    response = Factory(:response,
+                       :discussion => textmate_2,
+                       :answer   => "Make it shiny!")
+    response.update_attribute(:user, user)
     internet_explorer = Factory(:discussion, :question => "Internet Explorer")
     Factory(:response,
             :discussion => internet_explorer,
