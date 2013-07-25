@@ -1,10 +1,15 @@
 AskMe::Application.routes.draw do
 
+  devise_for :users
+
   root :to => "discussions#index"
 
   resources :discussions do
     resources :responses
   end
+
+  devise_for :users
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
