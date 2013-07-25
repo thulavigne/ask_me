@@ -20,6 +20,19 @@ before_filter :find_response, :only => [:show, :edit, :update, :destroy]
   def show
   end
 
+  def edit
+  end
+
+  def update
+    if @response.update_attributes(params[:response])
+      flash[:notice] = "Answer has been updated."
+      redirect_to [@discussion, @response]
+    else
+      flash[:alert] = "Answer has not been updated."
+      render :action => "edit"
+    end
+  end
+
   private
     def find_discussion
       @discussion = Discussion.find(params[:discussion_id])

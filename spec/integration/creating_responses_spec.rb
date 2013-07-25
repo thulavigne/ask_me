@@ -10,12 +10,12 @@ feature "Creating Responses" do
 
   scenario "Creating a response" do
     fill_in "Answer", :with => "Non-standards compliance"
-    click_button "Submit Answer"
+    click_button "Create Response"
     page.should have_content("Answer has been submitted.")
   end
 
   scenario "Creating a response without valid attributes fails" do
-    click_button "Submit Answer"
+    click_button "Create Response"
     page.should have_content("Answer has not been submitted.")
     page.should have_content("Answer can't be blank")
   end
