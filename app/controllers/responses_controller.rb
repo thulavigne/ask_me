@@ -33,6 +33,12 @@ before_filter :find_response, :only => [:show, :edit, :update, :destroy]
     end
   end
 
+  def destroy
+    @response.destroy
+    flash[:notice] = "Answer has been deleted."
+    redirect_to @discussion
+  end
+
   private
     def find_discussion
       @discussion = Discussion.find(params[:discussion_id])
