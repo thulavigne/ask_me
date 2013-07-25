@@ -1,6 +1,11 @@
 AskMe::Application.routes.draw do
+
   root :to => "discussions#index"
-  resources :discussions
+
+  resources :discussions do
+    resources :responses
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

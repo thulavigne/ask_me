@@ -1,0 +1,10 @@
+<%= form_for [@discussion, @response] do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :answer %><br>
+        </programlisting>
+      </informalexample>
+    <%= f.text_area :answer %>
+  </p>
+  <%= f.submit 'Submit Answer' %>
+<% end %>
